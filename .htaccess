@@ -1,0 +1,9 @@
+<ifModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule ^banana$ views/banana.php
+RewriteRule ^Profil$ views/profil.php
+RewriteRule ^disconnect$ views/disconnect.php
+RewriteRule ^home$ index.php
+RewriteRule ^Parameter$ views/parameterAccount.php
+ErrorDocument 404 /views/error404.php
+</ifModule>

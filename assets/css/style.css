@@ -1,0 +1,81 @@
+
+/* <--------------------------------------------------------- > FOOTER <---------------------------------------------------------> */
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  main {
+    flex: 1 0 auto;
+  }
+      
+/* <--------------------------------------------------------- > OTHER <---------------------------------------------------------> */
+#styleNavModification{
+    display: inline-block;
+}
+#dropWidth{
+    width: 125px;
+}
+.hidden{
+    display: none;
+}
+.relative{
+    position: relative;
+}
+/* <--------------------------------------------------------- > ERRORS <---------------------------------------------------------> */
+.error{
+    color:red;
+    position: absolute;
+}
+.errorProfil{
+    color: red;  
+}
+/*<--------------------------------------------------------- > PROFIL <---------------------------------------------------------> */
+.userImg{
+    width: 19.318em;
+    height: 18em;
+    object-fit: contain;
+}
+.profilImg{
+    max-height: 10%;
+    max-width: 13%;
+    float: left;
+    border: 1px silver solid;
+    max-width: 15.67em;
+    padding-bottom: -1em;
+}
+.usernameStyle{
+    border: 1px silver solid;
+    border-right: none; 
+    border-bottom: none;
+    border-left: none;
+    margin-bottom:  -0.23em;
+    margin-top: -0.18em;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.profilInfo{
+    border: 1px silver solid;
+    float: left ;
+    width: 87.3%;
+}
+.identityName, div .profilInfo h2{
+    font-size: 30px;
+    text-align: center;
+}
+.memberDate{
+    font-size: 17px;
+    text-align: center;
+    margin-right: 3%;
+}
+.phoneStyle{
+    margin-left: 0.3em;
+    float: left;
+    font-size: 27px;
+}
+.mailStyle{
+    margin-right: 0.3em;
+    float: right;
+    font-size: 27px;
+}
