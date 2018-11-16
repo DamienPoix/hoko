@@ -141,4 +141,17 @@ class users extends database {
             }
         }
     }
+    public function deleteUser(){
+        $request = 'DELETE FROM `p24oi86_users`'
+                . 'WHERE `id` = :id';
+        $delete = $this->db->prepare($request);
+        $delete->bindValue(':id', $this->id,PDO::PARAM_INT);
+        //vérification que la requête s'est bien exécutée
+        if ($delete->execute()) {
+            //vérification qu'il s'agit bien d'un objet
+            if (is_object($delete)) {
+                return $delete;
+            }
+        }
+    }
 }

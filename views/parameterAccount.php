@@ -3,7 +3,7 @@ include_once '../class/path.php';
 include_once path::getControllersPath() . 'parameterAccountCtl.php';
 include_once path::getViewsPath() . 'header.php';
 ?>
-<div class = "row">
+<div class = "container">
     <form class = "col s12" method = "POST" action = "#" id = "formRegister">
         <fieldset>
             <legend>Informations personnelles</legend>
@@ -68,8 +68,27 @@ include_once path::getViewsPath() . 'header.php';
                 <?php } ?>
             </select>     
         </fieldset>
-        <input type="submit" name="submit" id="submit" value="modification du profil" class="btn"/>
+        <input type="submit" name="submit" id="submit" value="modification du profil" class="btn green darken-4 col s12 m3"/>
     </form>
-    <?php
-    include_once path::getViewsPath() . 'footer.php';
-    ?>
+    <!-- Modal Trigger -->
+    <a class="btn waves-effect waves-light modal-trigger red darken-4" href="#modalSuppr">Supprimé le profil</a>
+    <!-- Modal Structure -->
+    <div id="modalSuppr" class="modal">
+        <div class="modal-content">
+            <h4>Voulez-vous vraiment supprimé votre profil</h4>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="left text-lighten-4">
+            <a href="Parameter?idDelete=<?= $_SESSION['id'] ?>" class="modal-close waves-effect waves-red btn-flat red darken-4 ">supprimé</a>
+                </div>
+                <div class="right">
+            <a href="Parameter" class="modal-close waves-effect waves-green btn-flat green darken-4 text-light">annulé</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+include_once path::getViewsPath() . 'footer.php';
+?>

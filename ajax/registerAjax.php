@@ -17,19 +17,19 @@ $user = new users();
 if (!empty($_POST['lastname'])) {
     $user->lastname = htmlspecialchars($_POST['lastname']);
 } else {
-    $formError['lastname'] = 'Merci de remplire le champ Nom correctement';
+    $formError['lastname'] = 'Merci d\'indiquer un nom ';
 }
 //vérification pour le champ firstname
 if (!empty($_POST['firstname'])) {
     $user->firstname = htmlspecialchars($_POST['firstname']);
 } else {
-    $formError['firstname'] = 'Merci de remplire le champ Prénom correctement';
+    $formError['firstname'] = 'Merci d\'indiquer un prénom';
 }
 //vérification pour le select civility
 if (!empty($_POST['idCivility'])) {
     $user->idCivility = htmlspecialchars($_POST['idCivility']);
 } else {
-    $formError['idCivility'] = 'Merci de remplire le champ civilité correctement';
+    $formError['idCivility'] = 'Merci de séléctionner une civilité';
 }
 //vérification pour le champ birthdate
 if (!empty($_POST['birthdate'])) {
@@ -37,44 +37,44 @@ if (!empty($_POST['birthdate'])) {
         $user->birthdate = htmlspecialchars($_POST['birthdate']);
     } else {
         //vérification si la date de naissance est valide
-        $formError['birthdate'] = 'Merci d\'utiliser un age valide';
+        $formError['birthdate'] = 'Merci d\'indiquer un age valide';
     }
 } else {
-    $formError['birthdate'] = 'Merci de remplire le champ birthdate correctement';
+    $formError['birthdate'] = 'Merci d\'indiquer un age';
 }
 //vérification pour le champ mail
 if (!empty($_POST['mail'])) {
     $user->mail = htmlspecialchars($_POST['mail']);
 } else {
-    $formError['mail'] = 'Merci de remplire le champ mail correctement';
+    $formError['mail'] = 'Merci d\'indiquer votre mail';
 }
 //vérification pour le champ phone
 if (!empty($_POST['phone'])) {
     $user->phone = htmlspecialchars($_POST['phone']);
 } else {
-    $formError['phone'] = 'Merci de remplire le champ phone correctement';
+    $formError['phone'] = 'Merci d\'indiqué votre numéro de téléphone';
 }
 //vérification pour le champ username
 if (!empty($_POST['username'])) {
     if (preg_match($regexName, $_POST['username'])) {
         $user->username = htmlspecialchars($_POST['username']);
     } else {
-        $formError['username'] = 'Merci d\'utilisé un username valide(caractère maximale)';
+        $formError['username'] = 'Merci d\'utilisé un pseudo valide';
     }
 } else {
-    $formError['username'] = 'Merci de remplir le champ téléphone correctement';
+    $formError['username'] = 'Merci d\'indiquer votre pseudo';
 }
 //vérification pour le champ password
 if (!empty($_POST['password'])) {
     $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 } else {
-    $formError['password'] = '';
+    $formError['password'] = 'mot de passe invalide';
 }
 //vérification pour le champ phone
 if (!empty($_POST['userType'])) {
     $user->idUserType = htmlspecialchars($_POST['userType']);
 } else {
-    $formError['userType'] = 'Merci de remplir le champ userType correctement';
+    $formError['userType'] = 'Merci de sélectionner un type d\'utilisateur';
 }
 //appel de la méthode vérifiant la disponibilité du nom d'utilisateur
     $checkUsername = $user->checkIfUserExist();

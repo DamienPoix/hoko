@@ -18,7 +18,7 @@ $showCivility = $getCivility->showCivility();
 $getUserType = NEW userType();
 $showType = $getUserType->showType();
 $formError = array();
-
+//partie pour le formulaire de modification
 if (isset($_POST['submit'])) {
     session_start();
     $changeContent = new users();
@@ -115,4 +115,24 @@ if (isset($_POST['submit'])) {
     }
     session_write_close();
 }
-
+//suppresion de l'utilisateur
+if (isset($_GET['idDelete'])) {
+//instanciation pour la suppression
+    $delete = NEW users();
+    $delete->id = htmlspecialchars($_GET['idDelete']);
+//appel de la méthode deleteUser() permettant la suppression d'un utilisateur
+    $deleteUser = $delete->deleteUser();
+//si la méthode s'exécute 
+    if ($deleteUser == TRUE) {
+        //ouverture de la session
+        session_start();
+        //destruction de la session
+        session_destroy();
+        //redirection vers la page d'inscription
+        header('Location: home');
+        exit();
+        //affichage d'un message d'erreur si la requête ne s'est pas exécutée
+    } elseif ($deleteUser === FALSE) {
+        $deleteError = 'L\'utilisateur n\'a pas pu être supprimé, veuillez contacter l\'administrateur du site';
+    }
+}

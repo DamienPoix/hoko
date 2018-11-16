@@ -10,6 +10,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../assets/css/style.css" />
+         <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet"> 
     </head>
     <body>
         <nav>
@@ -32,7 +33,13 @@ include_once path::getControllersPath() . 'profilCtl.php';
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#modalAccount" class="waves-effect waves-dark btn modal-trigger"><i class="medium material-icons">account_box</i>Connexion/inscription</a></li>
+            <?php if (isset($_SESSION['isConnect']) == true) { ?>
+                <li><a href="Profil"><?= $_SESSION['username'] ?></a></li>
+                <li><a href="Parameter">Paramètres</a></li>
+                <li><a href="disconnect">Déconnexion</a></li>
+            <?php } else { ?>
+                <li><a href="#modalAccount" class="waves-effect waves-dark btn modal-trigger"><i class="medium material-icons">account_box</i>Connexion/inscription</a></li>
+            <?php } ?>
         </ul>
         <div id="modalAccount" class="modal">
             <div class="modal-content">
@@ -63,7 +70,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                         <button class="btn formVisibilty">Inscription</button>
                     </div>
                 </div>
-                <?php // fin du formulaire pour se connecter  ?>
+                <?php // fin du formulaire pour se connecter   ?>
                 <div id="registerForm">
                     <h4>Inscription</h4>
                     <div class="row">
