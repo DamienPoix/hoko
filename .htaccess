@@ -5,5 +5,6 @@ RewriteRule ^Profil$ views/profil.php
 RewriteRule ^disconnect$ views/disconnect.php
 RewriteRule ^home$ index.php
 RewriteRule ^Parameter$ views/parameterAccount.php
+RewriteRule ^Ajout-Article$ views/addArticle.php
 ErrorDocument 404 /views/error404.php
 </ifModule>

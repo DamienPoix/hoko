@@ -5,6 +5,6 @@
         <link rel="stylesheet" href="../assets/css/style.css" />
     </head>
     <body class="error404">
-        <p>retourné sur le site : <a href="home">page home</a></p>
+        <p>Retourner sur le site : <a href="home">page home</a></p>
     </body>
 </html>

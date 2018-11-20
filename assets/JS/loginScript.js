@@ -2,7 +2,6 @@ $(document).ready(function () {
     var key = '';
     $('#passwordConnexion').keypress(function (e) {
         e.preventDefault();
-        console.log(e.key);
         if (e.key.length == 1) {
             key = key + e.key;
             $(this).val($(this).val() + '•');

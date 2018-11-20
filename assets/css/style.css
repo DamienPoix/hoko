@@ -23,6 +23,15 @@
 .brand-logo{
     font-family: 'Acme', sans-serif;
 }
+.boldText{
+    font-weight: bold;
+}
+.centerText{
+    text-align: center;
+}
+.floatR{
+    float: right;
+}
 /* <--------------------------------------------------------- > ERRORS <---------------------------------------------------------> */
 .error{
     color:red;
@@ -36,6 +45,10 @@
     width: 19.318em;
     height: 18em;
     object-fit: contain;
+}
+.userImg:hover{
+    background: rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 .profilImg{
     max-height: 10%;
@@ -85,11 +98,17 @@
     float: left;
     color: white;
 }
-.right{
+#right{
     float: right;
     color: white;
+    margin-top: -2.8%;
 }
-/*<--------------------------------------------------------- > PARAMETRE <---------------------------------------------------------> */
+.titleMod{
+    font-size: 3em;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+}
+/*<--------------------------------------------------------- > ERROR 404 <---------------------------------------------------------> */
 .error404{
     font-size: 2em;
     color: green;

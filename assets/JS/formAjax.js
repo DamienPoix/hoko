@@ -4,7 +4,6 @@ $(document).ready(function () {
     var keyp = '';
     $('#password').keypress(function (e) {
         e.preventDefault();
-        console.log(e.key);
         if (e.key.length == 1) {
             keyp = keyp + e.key;
             $(this).val($(this).val() + '•');
