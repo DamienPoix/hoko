@@ -1,26 +1,19 @@
 //script pour initialiser la sidnav pour la version mobile
 $(document).ready(function () {
     $('.sidenav').sidenav();
-});
 //script pour initier la modal d'inscription
-$(document).ready(function () {
     $('.modal').modal();
-});
 //script pour les select 
-$(document).ready(function () {
     $('select').formSelect();
-});
 //script pour le dropdown
-$(document).ready(function () {
     $('.dropdown-trigger').dropdown();
     var elem = document.querySelector('.menu_trigger');
     var instance = M.Dropdown.init(elem, {
         constrainWidth: false,
     });
-});
 //script pour les formulaire pour les faire apparaitre et disparaitre
-$(document).ready(function () {
     $("#registerForm").hide();
+    $("#errorNotConnect").hide();
     $(".formVisibilty").click(function () {
         if ($("#registerForm").is(":visible")) {
             $("#registerForm").hide();
@@ -29,5 +22,10 @@ $(document).ready(function () {
             $("#registerForm").show();
             $("#connectForm").hide();
         }
+    });
+    //permet de switch sur la modal et d'afficher le message d'erreur quand on est pas connecter et qu'on clique sur le bouton ajouter un article
+    $('#addArticleNotConnected').click(function () {
+        $('#modalAccount').modal('open');
+        $("#errorNotConnect").show();
     });
 });

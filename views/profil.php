@@ -1,6 +1,7 @@
 <?php
 include_once '../class/path.php';
 include_once path::getControllersPath() . 'profilCtl.php';
+if($_SESSION['isConnect'] == true){
 include_once path::getViewsPath() . 'header.php';
 $identityName =$_SESSION['lastname'] . ' ' . $_SESSION['firstname'];
 ?>
@@ -29,4 +30,8 @@ $identityName =$_SESSION['lastname'] . ' ' . $_SESSION['firstname'];
     </div>
     <?php
     include_once path::getViewsPath() . 'footer.php';
+} else {
+    header('location: home');
+    exit;
+}
     ?>

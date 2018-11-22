@@ -10,7 +10,7 @@ $getUserType = NEW userType();
 $showType = $getUserType->showType();
 //instaciation de l'user
 $profilUser = NEW users();
-//c'est ici
+//inutil maintenant (je crois)
 if (isset($_GET['id'])) {
     $profilUser->id = htmlspecialchars($_GET['id']);
 }

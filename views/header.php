@@ -19,6 +19,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <?php if (isset($_SESSION['isConnect']) == true) { ?>
+                    <li><a class="btn orange darken-3" href="Ajout_Article">Ajouter un Article</a></li>
                         <li> <a href="#" class="waves-effect waves-dark btn dropdown-trigger" data-target='dropProfil' id="dropWidth"><?= $_SESSION['username'] ?></a></li>
                         <ul id='dropProfil' class='dropdown-content'>
                             <li><a href="Profil">Profil</a></li>
@@ -27,6 +28,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                             <li><a href="disconnect">Déconnexion</a></li>
                         </ul>
                     <?php } else { ?>
+                        <li><a class="btn orange darken-3" id="addArticleNotConnected">Ajouter un Article</a></li>
                         <li> <a href="#modalAccount" class="waves-effect waves-dark btn modal-trigger">Connexion/inscription</a></li>
                     <?php } ?>
                 </ul>
@@ -52,6 +54,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                         <form class="col s12" method="POST" action="#" id="loginForm">
                             <div class="row">
                                 <p id="errorMessage">Username ou mot de passe invalide!!</p>
+                                <p id="errorNotConnect">Merci de vous connecter pour ajouter un article<p>
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">person_outline</i>
                                     <input type="text" id="usernameConnexion" class="autocomplete" name="usernameConnexion">
