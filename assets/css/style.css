@@ -122,3 +122,11 @@
 .error404 a:hover{
     color: darkgreen;
 }
+/* <--------------------------------------------------------- > Article <---------------------------------------------------------> */
+.articleImg{
+    margin: 0.3em;
+    width: 180px;
+    height: 180px;
+    border: 3px #ef6c00 dashed;
+    border-radius: 3%;
+}

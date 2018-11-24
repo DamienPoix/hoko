@@ -1,7 +1,9 @@
 <?php
 include_once '../class/path.php';
 include_once path::getControllersPath() . 'profilCtl.php';
-if($_SESSION['isConnect'] == true){
+session_start();
+if(isset($_SESSION['isConnect']) && $_SESSION['isConnect'] == true){
+session_write_close();
 include_once path::getViewsPath() . 'header.php';
 $identityName =$_SESSION['lastname'] . ' ' . $_SESSION['firstname'];
 ?>

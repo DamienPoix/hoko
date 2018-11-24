@@ -7,10 +7,8 @@ $(document).ready(function () {
     $('select').formSelect();
 //script pour le dropdown
     $('.dropdown-trigger').dropdown();
-    var elem = document.querySelector('.menu_trigger');
-    var instance = M.Dropdown.init(elem, {
-        constrainWidth: false,
-    });
+//script pour le calculer le nombre de caractères
+    $('textarea#descArticle').characterCounter();
 //script pour les formulaire pour les faire apparaitre et disparaitre
     $("#registerForm").hide();
     $("#errorNotConnect").hide();
