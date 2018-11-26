@@ -8,11 +8,7 @@ include_once path::getViewsPath() . 'header.php';
     <?php 
     if($articleSuccess == true){ ?>
     <p class="success boldText">Votre annonce a bien était sauvegarder vous allez être redirigé vers l'ajout de photo</p>
-    <?php
-        sleep(5);
-        header('location: articlePictures');
-        exit();
-    } ?>
+    <?php } ?>
     <div class="row">
         <div class="col s12">
             <h3 class="centerText acme">Information principale</h3>

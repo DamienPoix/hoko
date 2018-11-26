@@ -13,7 +13,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
          <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet"> 
     </head>
     <body>
-        <nav>
+        <nav class="deep-purple ">
             <div class="nav-wrapper">
                 <a href="home" class="brand-logo">HOKO</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -29,7 +29,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                         </ul>
                     <?php } else { ?>
                         <li><a class="btn orange darken-3" id="addArticleNotConnected">Ajouter un Article</a></li>
-                        <li> <a href="#modalAccount" class="waves-effect waves-dark btn modal-trigger">Connexion/inscription</a></li>
+                        <li> <a href="#modalAccount" class="light-green darken-1 waves-effect waves-dark btn modal-trigger">Connexion/inscription</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -73,7 +73,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                         <button class="btn formVisibilty">Inscription</button>
                     </div>
                 </div>
-                <?php // fin du formulaire pour se connecter   ?>
+                <?php // fin du formulaire pour se connecter ?>
                 <div id="registerForm">
                     <h4>Inscription</h4>
                     <div class="row">

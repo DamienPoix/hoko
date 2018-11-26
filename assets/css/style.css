@@ -37,10 +37,21 @@
 }
 .border{
     border: 2px #ef6c00 double;
-    border-radius: 3%;
 }
 #last{
     font-size: 2.3em;
+}
+.fat{
+    font-size: 2.5em;
+}
+.mtop{
+    margin-top : -3%;
+}
+.mbot{
+    margin-bottom: -5%;
+}
+.datePos{
+    margin-top: 8%;
 }
 /* <--------------------------------------------------------- > ERRORS <---------------------------------------------------------> */
 .error{
@@ -141,8 +152,7 @@
     margin: 0.3em;
     width: 180px;
     height: 180px;
-    border: 3px #ef6c00 dashed;
-    border-radius: 3%;
+    margin-bottom: -10%; 
 }
 #submitArticle{
     font-size: 2em;

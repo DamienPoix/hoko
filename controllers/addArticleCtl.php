@@ -22,8 +22,8 @@ $articleError = array();
 //déclaration de la variable articleSuccess 
 $articleSuccess = false;
 //déclaration des regex
-$regexName = '/^[a-zA-Z0-9àáâãäåéèêëîïìíØøòóôõöùúûüýÿñçßæœ_\'\-]+$/';
-$regexDesc = '/^[a-zA-Z0-9àáâãäåéèêëîïìíØøòóôõöùúûüýÿñçßæœ_\'-,;!:.@]+$/';
+$regexName = '/^[a-zA-Z0-9àáâãäåéèêëîïìíØøòóôõöùúûüýÿñçßæœ _\'\-]+$/';
+$regexDesc = '/^[a-zA-Z0-9àáâãäåéèêëîïìíØøòóôõöùúûüýÿñçßæœ _\'-,;!:.@]+$/';
 $regexNumber = '/[0-9]+/';
 if (isset($_POST['submitArticle'])) {
     //déclaration de la variable date qu'on va utiliser pour la date de création et la durée de parution

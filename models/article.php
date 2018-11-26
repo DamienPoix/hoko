@@ -39,4 +39,40 @@ class articles extends database {
         return $insertArticle->execute();
     }
 
+    public function showArticle() {
+        $request = 'SELECT `at`.`id`,'
+                . ' `at`.`name`,'
+                . ' `at`.`description`,'
+                . '`at`.`price`,'
+                . ' DATE_FORMAT(`at`.`postDate`, \'%d/%m/%Y\') AS `postDate`,'
+                . ' DATE_FORMAT(`at`.`endDate`, \'%d/%m/%Y\') AS `endDate`,'
+                . ' `at`.`idUsers`,'
+                . '`at`.`idLocation`,'
+                . '`at`.`idCategory`, '
+                . '`cat`.`name` AS `category`, '
+                . '`loc`.`department` '
+                . 'FROM `p24oi86_article` AS `at`'
+                . 'LEFT JOIN `p24oi86_category` AS `cat` ON `at`.`idCategory` = `cat`.`id` '
+                . 'LEFT JOIN `p24oi86_location` AS `loc` ON `at`.`idLocation` = `loc`.`id` '
+                . 'ORDER BY `at`.`id` DESC';
+        $articleInfo = $this->db->prepare($request);
+        $articleInfo->execute();
+        if (is_object($articleInfo)) {
+            //récupération des infos de l'article
+            $result = $articleInfo->fetchAll(PDO::FETCH_OBJ);
+        }
+        return $result;
+    }
+
+    /**
+     * methode pour compter le nombre d'article qu'il y a
+     * @return type
+     */
+    public function countArticle() {
+        $request = 'SELECT COUNT(`id`) AS `nbrArticle` FROM `p24oi86_article`';
+        $articleCount = $this->db->query($request);
+        $articleCountResult = $articleCount->fetch(PDO::FETCH_OBJ);
+        return $articleCountResult;
+    }
+
 }
