@@ -6,7 +6,6 @@ var imageForm = $('#uploadImage'),
 
 $('#userImage').on('change', function () {
     $("#uploadImage").submit();
-    console.log('banana');
 });
 
 $('#uploadImage').on('submit', function (e) {

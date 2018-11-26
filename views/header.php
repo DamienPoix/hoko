@@ -53,8 +53,8 @@ include_once path::getControllersPath() . 'profilCtl.php';
                     <div class="row">
                         <form class="col s12" method="POST" action="#" id="loginForm">
                             <div class="row">
-                                <p id="errorMessage">Username ou mot de passe invalide!!</p>
-                                <p id="errorNotConnect">Merci de vous connecter pour ajouter un article<p>
+                                <p id="errorMessage" class="allError" >Username ou mot de passe invalide!!</p>
+                                <p id="errorNotConnect" class="allError" >Merci de vous connecter pour ajouter un article<p>
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">person_outline</i>
                                     <input type="text" id="usernameConnexion" class="autocomplete" name="usernameConnexion">
