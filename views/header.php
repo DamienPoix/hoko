@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once path::getControllersPath() . 'formUser.php';
-include_once path::getControllersPath() . 'profilCtl.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +10,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../assets/css/style.css" />
          <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet"> 
+         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet"> 
     </head>
     <body>
         <nav class="deep-purple ">
@@ -19,7 +19,7 @@ include_once path::getControllersPath() . 'profilCtl.php';
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <?php if (isset($_SESSION['isConnect']) == true) { ?>
-                    <li><a class="btn orange darken-3" href="Ajout_Article">Ajouter un Article</a></li>
+                    <li><a class="btn orange darken-3 franO boldText" href="Ajout_Article">Ajouter un Article</a></li>
                         <li> <a href="#" class="waves-effect waves-dark btn dropdown-trigger" data-target='dropProfil' id="dropWidth"><?= $_SESSION['username'] ?></a></li>
                         <ul id='dropProfil' class='dropdown-content'>
                             <li><a href="Profil">Profil</a></li>
@@ -28,8 +28,8 @@ include_once path::getControllersPath() . 'profilCtl.php';
                             <li><a href="disconnect">Déconnexion</a></li>
                         </ul>
                     <?php } else { ?>
-                        <li><a class="btn orange darken-3" id="addArticleNotConnected">Ajouter un Article</a></li>
-                        <li> <a href="#modalAccount" class="light-green darken-1 waves-effect waves-dark btn modal-trigger">Connexion/inscription</a></li>
+                        <li><a class="btn orange darken-3 acme boldText" id="addArticleNotConnected">Ajouter un Article</a></li>
+                        <li> <a href="#modalAccount" class="boldText light-green darken-1 waves-effect waves-dark btn modal-trigger acme">Connexion/inscription</a></li>
                     <?php } ?>
                 </ul>
             </div>

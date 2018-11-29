@@ -1,15 +1,14 @@
 <?php
-include_once 'class/path.php';
+include_once '../class/path.php';
 include_once path::getViewsPath() . 'header.php';
-include_once path::getControllersPath() . 'indexCtl.php';
+include_once path::getControllersPath() . 'showAllArticleCtl.php';
 ?>
-<h1 class="centerText acme boldText">Bienvenue sur HOKO</h1>
 <div class="container">
-    <h2 class="centerText acme boldText" id="last">Les derniers articles mis en vente</h2>
+    <h2 class="centerText acme boldText" id="last">Article mis en Vente</h2>
     <?php
-    foreach ($article as $a) {
+    foreach ($showArticle as $a) {
         ?>
-        <div class="border white">
+        <div class="border">
             <div class="row">
                 <div class="col s12 m2">
                     <img id="userImageDisplayed" class="articleImg"  src="../assets/IMG/articleImage/no-picture.png" title="Image de l'article" alt="Image de l'article" /> 
@@ -30,12 +29,28 @@ include_once path::getControllersPath() . 'indexCtl.php';
                         <?php } else { ?>
                             <p class=" acme boldText right-align">disponible jusqu'a la suppresion</p>
                         <?php } ?>
-                            <a class="btn deep-purple right moreInfo" href="Article-Infos-<?= $a->id ?>">plus d'information</a>
                     </div>
                 </div>
             </div>
         </div>
+    <?php } ?>
+    <ul class="pagination centerText">
         <?php
-    }
+        if ($limitStart >= 1) {
+            ?>
+            <li><a href="Article?page=<?= $page - 1 ?>"><i class="material-icons">chevron_left</i></a></li>
+            <?php
+        }
+        for ($pageNumber = 1; $pageNumber <= $totalPage; $pageNumber ++) {
+            ?>
+            <li class="active "><a href="Article?page=<?= $pageNumber ?>" class=" boldText acme deep-purple"><?= $pageNumber ?></a></li>
+            <?php
+        }
+        if ($limitStart <= $totalPage) {
+            ?>
+            <li class="waves-effect <?= $limitStart >= $totalPage ? 'disable' : '' ?>"><a href="Article?page=<?= $page + 1 ?>"><i class="material-icons">chevron_right</i></a></li>
+            <?php } ?>
+    </ul>
+    <?php
     include_once path::getViewsPath() . 'footer.php';
     ?>

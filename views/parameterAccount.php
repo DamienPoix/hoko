@@ -6,7 +6,7 @@ include_once path::getViewsPath() . 'header.php';
 <div class = "container">
     <h2 class="titleMod">Modification du profil</h2>
     <form class = "col s12" method = "POST" action = "#" id = "formRegister">
-        <fieldset>
+        <fieldset class="white border">
             <legend>Informations personnelles</legend>
             <div class = "row">
                 <div class = "input-field col s12 m6">
@@ -58,7 +58,7 @@ include_once path::getViewsPath() . 'header.php';
                 </div>
             </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="white">
             <legend>Informations de compte</legend>
             <select name="userType">
                 <option value="0" disabled selected>Type de compte</option> 
@@ -72,7 +72,7 @@ include_once path::getViewsPath() . 'header.php';
         <input type="submit" name="submit" id="submit" value="modification du profil" class="btn green darken-4 col s12 m3"/>
     </form>
     <!-- Modal Trigger -->
-    <a class="btn waves-effect waves-light modal-trigger red darken-4" href="#modalSuppr" id="right">Supprimer de l'utilisateur</a>
+    <a class="btn waves-effect waves-light modal-trigger red darken-4" href="#modalSuppr" id="right">Supprimer l'utilisateur</a>
     <!-- Modal Structure -->
     <div id="modalSuppr" class="modal">
         <div class="modal-content">

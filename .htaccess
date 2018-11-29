@@ -6,5 +6,7 @@ RewriteRule ^disconnect$ views/disconnect.php
 RewriteRule ^home$ index.php
 RewriteRule ^Parameter$ views/parameterAccount.php
 RewriteRule ^Ajout_Article$ views/addArticle.php
+RewriteRule ^Article$ views/showAllArticle.php
+RewriteRule ^Article-Infos-([\d]+)$ views/articleMoreInfo.php?Article=$1
 ErrorDocument 404 /views/error404.php
 </ifModule>

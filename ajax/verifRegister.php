@@ -24,7 +24,7 @@ if (isset($_POST['name'])) {
         }
     }
     //
-    if ($name == 'firstname') {
+    if ($name == 'firstname') { 
         if (!empty($value)) {
             if (!preg_match($regexName, $value)) {
                 $formError['firstname'] = 'caractère utilisé invalide';

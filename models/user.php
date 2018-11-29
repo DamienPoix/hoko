@@ -63,7 +63,9 @@ class users extends database {
 
    public function userConnect() {
         $exist = false;
-        $request = 'SELECT `id`, `lastname`, `username`, `firstname`,`password`, DATE_FORMAT(`birthdate`, \'%d/%m/%Y\') AS `birthdate`,DATE_FORMAT(`createDate`, \'%d/%m/%Y\') AS `createDate`, `phone`, `mail`,`idCivility`, `idUserType` '
+        $request = 'SELECT `id`, `lastname`, `username`, `firstname`,`password`, '
+                . 'DATE_FORMAT(`birthdate`, \'%d/%m/%Y\') AS `birthdate`,'
+                . 'DATE_FORMAT(`createDate`, \'%d/%m/%Y\') AS `createDate`, `phone`, `mail`,`idCivility`, `idUserType` '
                 . 'FROM `p24oi86_users` '
                 . 'WHERE `username` = :username';
         $result = $this->db->prepare($request);

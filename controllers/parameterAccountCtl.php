@@ -34,10 +34,10 @@ if (isset($_POST['submit'])) {
         if (preg_match($regexName, $lastname)) {
             $changeContent->lastname = htmlspecialchars($_POST['lastname']);
         } else {
-            
+            $formError['lastname'] = 'La saisie de votre nom est invalide';
         }
     } else {
-        
+        $formError['lastname'] = 'Veuillez indiqué votre nom';
     }
     //vérification pour le firstname
     if (!empty($_POST['firstname'])) {
@@ -45,10 +45,10 @@ if (isset($_POST['submit'])) {
         if (preg_match($regexName, $firstname)) {
             $changeContent->firstname = htmlspecialchars($_POST['firstname']);
         } else {
-            
+             $formError['firstname'] = 'La saisie de votre prénom est invalide';
         }
     } else {
-        
+        $formError['firstname'] = 'Veuillez indiqué votre prénom';
     }
 
 
@@ -69,10 +69,10 @@ if (isset($_POST['submit'])) {
         if (preg_match($regexPhone, $phone)) {
             $changeContent->phone = htmlspecialchars($_POST['phone']);
         } else {
-            
+            $formError['phone'] = 'La saisie de votre numéro de téléphone est invalide';
         }
     } else {
-        
+        $formError['phone'] = 'Veuillez indiqué votre numéro de téléphone';
     }
     //vérification que le champ birthDate n'est pas vide 
     if (!empty($_POST['birthdate'])) {
@@ -91,13 +91,13 @@ if (isset($_POST['submit'])) {
     if (!empty($_POST['userType'])) {
         $changeContent->idUserType = htmlspecialchars($_POST['userType']);
     } else {
-        
+       $formError['userType'] = 'Veuillez sélectionner un type d\'utilisateur' ;
     }
     //vérification pour le civility
     if (!empty($_POST['civility'])) {
         $changeContent->idCivility = htmlspecialchars($_POST['civility']);
     } else {
-        
+        $formError['civility'] = 'Veuillez sélectionner une civilité' ;
     }
     if (count($formError) == 0) {
         //affichage d'un message d'erreur si la méthode ne s'exécute pas

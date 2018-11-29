@@ -1,18 +1,20 @@
-
+body{
+    background-color: #d2ceff;
+}
 /* <--------------------------------------------------------- > FOOTER <---------------------------------------------------------> */
-      
+
 /* <--------------------------------------------------------- > OTHER <---------------------------------------------------------> */
 #styleNavModification{
     display: inline-block;
 }
 #dropWidth{
     width: 125px;
-       font-family: 'Acme', sans-serif;
-       font-size: 1.5em;
+    font-family: 'Acme', sans-serif;
+    font-size: 1.5em;
 }
 #dropProfil{
-      font-family: 'Acme', sans-serif;
-       font-size: 1.5em;
+    font-family: 'Acme', sans-serif;
+    font-size: 1.5em;
 }
 .hidden{
     display: none;
@@ -48,10 +50,13 @@
     margin-top : -3%;
 }
 .mbot{
-    margin-bottom: -5%;
+    margin-bottom: -2.5%;
 }
 .datePos{
     margin-top: 8%;
+}
+.franO{
+    font-family: 'Francois One', sans-serif;
 }
 /* <--------------------------------------------------------- > ERRORS <---------------------------------------------------------> */
 .error{
@@ -156,4 +161,46 @@
 }
 #submitArticle{
     font-size: 2em;
+}
+.moreInfo{
+    font-family: 'Francois One', sans-serif;
+    font-size: 1em;
+    margin-top: 15%;
+    margin-bottom: -15%;
+}
+.moreInfoImg{
+    margin-left: 1em;
+    margin-right: -1em;
+    margin-bottom: -0.4em;
+    max-width: 15%;
+    max-height: 15%;
+}
+.titleArt{
+    margin-top: -6em;
+    margin-bottom: 5em;
+}
+.dateArt{
+    margin-bottom: 2em;
+    font-size: 1.3em; 
+}
+.catInfo{
+    font-size: 1.3em;
+    margin-left: 20.5%;
+    margin-top: -10%;
+    margin-bottom: 10%
+}
+.locInfo{
+    font-size: 1.3em;
+    margin-left: 20.5%;
+    margin-top: -10%;
+    margin-bottom: 5%
+}
+.priceInfo{
+    font-size: 2.3em;
+    margin-left: 20.5%;
+    margin-top: -3%;
+    margin-bottom: 1%
+}
+.descInfo{
+    font-size: 1.5em;
 }

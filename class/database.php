@@ -1,7 +1,9 @@
 <?php
-
+//include du fichier de configuration
 include_once path::getRootPath().'configuration.php';
-
+/**
+ * création de la class database parent.Qui permet de se connecter a la base de donées
+ */
 class database {
 
     // Liste des attributs

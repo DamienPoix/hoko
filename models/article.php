@@ -54,7 +54,8 @@ class articles extends database {
                 . 'FROM `p24oi86_article` AS `at`'
                 . 'LEFT JOIN `p24oi86_category` AS `cat` ON `at`.`idCategory` = `cat`.`id` '
                 . 'LEFT JOIN `p24oi86_location` AS `loc` ON `at`.`idLocation` = `loc`.`id` '
-                . 'ORDER BY `at`.`id` DESC';
+                . 'ORDER BY `at`.`id` DESC '
+                . 'LIMIT 5' ;
         $articleInfo = $this->db->prepare($request);
         $articleInfo->execute();
         if (is_object($articleInfo)) {
@@ -75,4 +76,74 @@ class articles extends database {
         return $articleCountResult;
     }
 
+    public function showAll($limit, $limitStart) {
+        $getArticleReturn = array();
+        //OFFSET = IGNORÉ/decalage 
+        $request = 'SELECT `at`.`id`,'
+                . ' `at`.`name`,'
+                . ' `at`.`description`,'
+                . '`at`.`price`,'
+                . ' DATE_FORMAT(`at`.`postDate`, \'%d/%m/%Y\') AS `postDate`,'
+                . ' DATE_FORMAT(`at`.`endDate`, \'%d/%m/%Y\') AS `endDate`,'
+                . ' `at`.`idUsers`,'
+                . '`at`.`idLocation`,'
+                . '`at`.`idCategory`, '
+                . '`cat`.`name` AS `category`, '
+                . '`loc`.`department` '
+                . 'FROM `p24oi86_article` AS `at`'
+                . 'LEFT JOIN `p24oi86_category` AS `cat` ON `at`.`idCategory` = `cat`.`id` '
+                . 'LEFT JOIN `p24oi86_location` AS `loc` ON `at`.`idLocation` = `loc`.`id` '
+                . 'LIMIT :limit OFFSET :limitStart';
+        $allArticle = $this->db->prepare($request);
+        $allArticle->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $allArticle->bindValue(':limitStart', $limitStart, PDO::PARAM_INT);
+        if ($allArticle->execute()) {
+            $getArticleReturn = $allArticle->fetchAll(PDO::FETCH_OBJ);
+        } else {
+            $getArticleReturn = false;
+        }
+        return $getArticleReturn;
+    }
+    public function moreInfo() {
+        $request =  'SELECT `at`.`id`,'
+                . ' `at`.`name`,'
+                . ' `at`.`description`,'
+                . '`at`.`price`,'
+                . ' DATE_FORMAT(`at`.`postDate`, \'%d/%m/%Y\') AS `postDate`,'
+                . ' DATE_FORMAT(`at`.`endDate`, \'%d/%m/%Y\') AS `endDate`,'
+                . ' DATE_FORMAT(`us`.`createDate`, \'%d/%m/%Y\') AS `createDate`,'
+                . ' `at`.`idUsers`,'
+                . '`at`.`idLocation`,'
+                . '`at`.`idCategory`, '
+                . '`cat`.`name` AS `category`, '
+                . '`loc`.`department`, '
+                . '`us`.`username`, '
+                . '`us`.`mail` '
+                . 'FROM `p24oi86_article` AS `at`'
+                . 'LEFT JOIN `p24oi86_category` AS `cat` ON `at`.`idCategory` = `cat`.`id` '
+                . 'LEFT JOIN `p24oi86_location` AS `loc` ON `at`.`idLocation` = `loc`.`id` '
+                . 'LEFT JOIN `p24oi86_users` AS `us` ON `at`.`idUsers` = `us`.`id` '
+                . 'WHERE `at`.`id` = :id';
+        $info = $this->db->prepare($request);
+        $info->bindValue('id', $this->id, PDO::PARAM_INT);
+        if($info->execute()){
+            $returnInfo = $info->fetch(PDO::FETCH_OBJ);
+        } else {
+            $returnInfo = false;
+        }
+        return $returnInfo;
+    }
+    public function showArticleInProfil(){
+        $request = 'SELECT `id` ,`name`,DATE_FORMAT(`postDate`, \'%d/%m/%Y\') AS `postDate`, `price` '
+                . 'FROM `p24oi86_article` '
+                . 'WHERE `idUsers` = :idUsers';
+        $articleInProfil = $this->db->prepare($request);
+        $articleInProfil->bindValue(':idUsers', $this->idUsers, PDO::PARAM_INT);
+         if($articleInProfil->execute()){
+            $returnArticleInProfil = $articleInProfil->fetchAll(PDO::FETCH_OBJ);
+        } else {
+            $returnArticleInProfil = false;
+        }
+        return $returnArticleInProfil;
+    }
 }
