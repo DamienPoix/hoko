@@ -8,7 +8,7 @@ include_once path::getControllersPath() . 'showAllArticleCtl.php';
     <?php
     foreach ($showArticle as $a) {
         ?>
-        <div class="border">
+        <div class="border white">
             <div class="row">
                 <div class="col s12 m2">
                     <img id="userImageDisplayed" class="articleImg"  src="../assets/IMG/articleImage/no-picture.png" title="Image de l'article" alt="Image de l'article" /> 
@@ -29,6 +29,7 @@ include_once path::getControllersPath() . 'showAllArticleCtl.php';
                         <?php } else { ?>
                             <p class=" acme boldText right-align">disponible jusqu'a la suppresion</p>
                         <?php } ?>
+                        <a class="btn deep-purple right moreInfo" href="Article-Infos-<?= $a->id ?>">plus d'information</a>
                     </div>
                 </div>
             </div>

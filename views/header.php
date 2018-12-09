@@ -19,8 +19,9 @@ include_once path::getControllersPath() . 'formUser.php';
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <?php if (isset($_SESSION['isConnect']) == true) { ?>
+                    <li><a class="btn orange darken-3 franO boldText" href="Article">Article</a></li>
                     <li><a class="btn orange darken-3 franO boldText" href="Ajout_Article">Ajouter un Article</a></li>
-                        <li> <a href="#" class="waves-effect waves-dark btn dropdown-trigger" data-target='dropProfil' id="dropWidth"><?= $_SESSION['username'] ?></a></li>
+                        <li> <a href="#" class="waves-effect waves-dark btn dropdown-trigger relative" data-target='dropProfil' id="dropWidth"><?= $_SESSION['username'] ?></a></li>
                         <ul id='dropProfil' class='dropdown-content'>
                             <li><a href="Profil">Profil</a></li>
                             <li><a href="Parameter">Paramètres</a></li>
@@ -28,6 +29,7 @@ include_once path::getControllersPath() . 'formUser.php';
                             <li><a href="disconnect">Déconnexion</a></li>
                         </ul>
                     <?php } else { ?>
+                        <li><a class="btn orange darken-3 franO boldText" href="Article">Article</a></li>
                         <li><a class="btn orange darken-3 acme boldText" id="addArticleNotConnected">Ajouter un Article</a></li>
                         <li> <a href="#modalAccount" class="boldText light-green darken-1 waves-effect waves-dark btn modal-trigger acme">Connexion/inscription</a></li>
                     <?php } ?>
@@ -67,10 +69,10 @@ include_once path::getControllersPath() . 'formUser.php';
                                     <input type="text" id="passwordConnexion"  name="passwordConnexion">
                                     <label for="passwordConnexion">mot de passe</label>
                                 </div>
-                                <input type="submit" class="btn" name="login" id="login" value="connexion"/>
+                                <input type="submit" class="boldText light-green darken-1 btn" name="login" id="login" value="connexion"/>
                             </div>
                         </form>
-                        <button class="btn formVisibilty">Inscription</button>
+                        <button class="btn formVisibilty boldText light-green darken-1">Inscription</button>
                     </div>
                 </div>
                 <?php // fin du formulaire pour se connecter ?>
@@ -157,10 +159,10 @@ include_once path::getControllersPath() . 'formUser.php';
                                     <?php } ?>
                                 </select>     
                             </fieldset>
-                            <input type="submit" name="submit" id="submitRegister" value="inscription" class="btn"/>
+                            <input type="submit" name="submit" id="submitRegister" value="inscription" class="boldText light-green darken-1 btn"/>
                         </form>
                     </div>
-                    <button class="formVisibilty" class="btn">Connexion</button>
+                    <button class="boldText light-green darken-1 btn formVisibilty">Connexion</button>
                 </div>
             </div>
         </div>

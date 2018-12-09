@@ -7,7 +7,7 @@ include_once path::getViewsPath() . 'header.php';
     <h2 class="centerText acme boldText">Ajout d'article</h2>
     <?php 
     if($articleSuccess == true){ ?>
-    <p class="success boldText">Votre annonce a bien était sauvegarder vous allez être redirigé vers l'ajout de photo</p>
+    <p class="success boldText ">Votre article a été sauvegarder</p>
     <?php } ?>
     <div class="row">
         <div class="col s12">
@@ -89,8 +89,8 @@ include_once path::getViewsPath() . 'header.php';
             </div>
         </div>
         <?php
-        if (isset($formError['descArticle'])) {
-            ?><p class="allError"><?= $formError['descArticle'] ?></p>
+        if (isset($articleError['descArticle'])) {
+            ?><p class="allError"><?= $articleError['descArticle'] ?></p>
         <?php } ?>
         <div class="row">
             <div class="input-field col s12">

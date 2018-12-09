@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/damienp/Documents/projetPro/views/addArticle.php</file>
-            <file>file:/home/damienp/Documents/projetPro/models/article.php</file>
-            <file>file:/home/damienp/Documents/projetPro/index.php</file>
-            <file>file:/home/damienp/Documents/projetPro/controllers/addArticleCtl.php</file>
-            <file>file:/home/damienp/Documents/projetPro/controllers/parameterAccountCtl.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

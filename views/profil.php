@@ -30,31 +30,50 @@ if (isset($_SESSION['isConnect']) && $_SESSION['isConnect'] == true) {
             <p class="memberDate">Membre depuis le : <?= $_SESSION['createDate'] ?></p> 
         </div>
     </div>
-    <?php foreach ($showArticle as $a) { ?>
-<div class="container">
-<div class="row border white">
-    <div class="col s6 m2">
-        <p>Titre : <?= $a->name?></p>
-    </div>
-    <div class="col s6 m2 offset-m1">
-        <p>Prix : <?= $a->price?> €</p>
-    </div>
-    <div class="col s12 m2 offset-m1">
-        <p>date d'ajout : <?= $a->postDate?></p>
-    </div>
-    <div class="col s6 m1 offset-m2">
-        <a class="btn-floating btn-large pulse green right"><i class="material-icons">create</i></a>
-    </div>
-    <div class="col s6 m1">
-        <a class="btn-floating btn-large pulse red"><i class="material-icons">delete</i></a>
-    </div>
-</div>
-</div>
+    <?php
+    if (isset($success)) {
+        if ($success == true) {
+            ?>
+            <p class="success"> La supresion de votre article a été valider </p>
+        <?php } else { ?>
+            <p class="allError centerText"> suppression impossible un problème est survenue </p>
+            <?php
+        }
+    }
+    foreach ($showArticle as $a) {
+        ?>
+        <div class="container">
+            <div class="row border white">
+                <div class="col s6 m2">
+                    <p>Titre : <?= $a->name ?></p>
+                </div>
+                <div class="col s6 m2 offset-m1">
+                    <p>Prix : <?= $a->price ?> €</p>
+                </div>
+                <div class="col s12 m2 offset-m1">
+                    <p>date d'ajout : <?= $a->postDate ?></p>
+                </div>
+                <div class="col s6 m1 offset-m2">
+                    <a class="btn-floating btn-large pulse green right"><i class="material-icons">create</i></a>
+                </div>
+                <div class="col s6 m1">
+                    <a class="btn-floating btn-large pulse red modal-trigger" href="#modalArticleSuppr"><i class="material-icons">delete</i></a>
+                </div>
+            </div>
+            <div id="modalArticleSuppr" class="modal">
+                <div class="modal-content">
+                    <h4 class="centerText titleMod">Suppresion</h4>
+                    <p  class="centerText boldText">Voulez-vous vraiment supprimer cette Article</p>
+                    <p class="centerText"><a href="Profil?ArticleIdDelete=<?= $a->id ?>" class="modal-close waves-effect waves-light btn-flat red white-text boldText ">Supprimer</a></p>
+                    <a href="Parameter" class="modal-close waves-effect waves-light btn-flat green white-text boldText floatR">Annuler</a> 
+                </div>
+            </div>
+        </div>
         <?php
     }
-        include_once path::getViewsPath() . 'footer.php';
-    } else {
-        header('location: home');
-        exit;
-    }
-    ?>
+    include_once path::getViewsPath() . 'footer.php';
+} else {
+    header('location: home');
+    exit;
+}
+?>

@@ -5,21 +5,21 @@ include_once path::getViewsPath() . 'header.php';
 ?>
 <div class = "container">
     <h2 class="titleMod">Modification du profil</h2>
-    <form class = "col s12" method = "POST" action = "#" id = "formRegister">
+    <form class ="col s12" method ="POST" action ="#" id ="formParameterChange">
         <fieldset class="white border">
             <legend>Informations personnelles</legend>
             <div class = "row">
                 <div class = "input-field col s12 m6">
                     <i class = "material-icons prefix">face</i>
                     <input id = "lastname" type = "text" class = "validate" name = "lastname" value="<?= $_SESSION['lastname'] ?>" />
-                    <label for = "lastname">Prénom</label>
-                    <p class = "error"></p>
+                    <label for = "lastname">Nom</label>
+                    <p class = "error"><?= isset($formError['lastname'])? $formError['lastname'] : '' ?></p>
                 </div>
                 <div class = "input-field col s12 m6">
                     <i class = "material-icons prefix">face</i>
                     <input id = "firstname" type = "text" class = "validate" name = "firstname" value="<?= $_SESSION['firstname'] ?>" />
-                    <label for = "firstname">Nom</label>
-                    <p class = "error"></p>
+                    <label for = "firstname">Prénom</label>
+                    <p class = "error"><?= isset($formError['firstname'])? $formError['firstname'] : '' ?></p>
                 </div>
             </div>
             <div class = "row">
@@ -40,7 +40,7 @@ include_once path::getViewsPath() . 'header.php';
                     <i class="material-icons prefix">cake</i>
                     <input type="date" id="birthdate" name="birthdate" placeholder="" value="<?= $_SESSION['birthdate'] ?>" />
                     <label for="birthdate"> Date de naissance </label>
-                    <p class="error"></p>
+                    <p class="error"><?= isset($formError['birthdate'])? $formError['birthdate'] : '' ?></p>
                 </div>
             </div>
             <div class="row">
@@ -48,13 +48,13 @@ include_once path::getViewsPath() . 'header.php';
                     <i class="material-icons prefix">contact_mail</i>
                     <input id="mail" type="text" class="validate" name="mail" value="<?= $_SESSION['mail'] ?>" />
                     <label for="mail">Mail </label>
-                    <p class="error"></p>
+                    <p class="error"><?= isset($formError['mail'])? $formError['mail'] : '' ?></p>
                 </div>
                 <div class="input-field col s12 m6">
                     <i class="material-icons prefix">contact_phone</i>
                     <input  id="phone" type="text" class="validate" name="phone" value="<?= $_SESSION['phone'] ?>" />
                     <label for="phone">Téléphone</label>
-                    <p class="error"></p>
+                    <p class="error"><?= isset($formError['phone'])? $formError['phone'] : '' ?></p>
                 </div>
             </div>
         </fieldset>

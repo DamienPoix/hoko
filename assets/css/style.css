@@ -76,6 +76,9 @@ body{
     height: 18em;
     object-fit: contain;
 }
+#dropWidth{
+    
+}
 .userImg:hover{
     background: rgba(0,0,0,0.1);
     cursor: pointer;

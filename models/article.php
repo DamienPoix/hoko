@@ -55,7 +55,7 @@ class articles extends database {
                 . 'LEFT JOIN `p24oi86_category` AS `cat` ON `at`.`idCategory` = `cat`.`id` '
                 . 'LEFT JOIN `p24oi86_location` AS `loc` ON `at`.`idLocation` = `loc`.`id` '
                 . 'ORDER BY `at`.`id` DESC '
-                . 'LIMIT 5' ;
+                . 'LIMIT 5';
         $articleInfo = $this->db->prepare($request);
         $articleInfo->execute();
         if (is_object($articleInfo)) {
@@ -104,8 +104,9 @@ class articles extends database {
         }
         return $getArticleReturn;
     }
+
     public function moreInfo() {
-        $request =  'SELECT `at`.`id`,'
+        $request = 'SELECT `at`.`id`,'
                 . ' `at`.`name`,'
                 . ' `at`.`description`,'
                 . '`at`.`price`,'
@@ -126,24 +127,40 @@ class articles extends database {
                 . 'WHERE `at`.`id` = :id';
         $info = $this->db->prepare($request);
         $info->bindValue('id', $this->id, PDO::PARAM_INT);
-        if($info->execute()){
+        if ($info->execute()) {
             $returnInfo = $info->fetch(PDO::FETCH_OBJ);
         } else {
             $returnInfo = false;
         }
         return $returnInfo;
     }
-    public function showArticleInProfil(){
+
+    public function showArticleInProfil() {
         $request = 'SELECT `id` ,`name`,DATE_FORMAT(`postDate`, \'%d/%m/%Y\') AS `postDate`, `price` '
                 . 'FROM `p24oi86_article` '
                 . 'WHERE `idUsers` = :idUsers';
         $articleInProfil = $this->db->prepare($request);
         $articleInProfil->bindValue(':idUsers', $this->idUsers, PDO::PARAM_INT);
-         if($articleInProfil->execute()){
+        if ($articleInProfil->execute()) {
             $returnArticleInProfil = $articleInProfil->fetchAll(PDO::FETCH_OBJ);
         } else {
             $returnArticleInProfil = false;
         }
         return $returnArticleInProfil;
     }
+
+    public function SupprArticle() {
+        $request = 'DELETE FROM `p24oi86_article`'
+                . 'WHERE `id` = :id';
+        $delete = $this->db->prepare($request);
+        $delete->bindValue(':id', $this->id, PDO::PARAM_INT);
+        //vérification que la requête s'est bien exécutée
+        if ($delete->execute()) {
+            //vérification qu'il s'agit bien d'un objet
+            if (is_object($delete)) {
+                return $delete;
+            }
+        }
+    }
+
 }
