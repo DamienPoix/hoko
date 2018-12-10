@@ -1,8 +1,10 @@
 <?php
+//démarage de la session
 session_start();
-
+//insertion du fichier path  et du model user
 include_once '../class/path.php';
 include_once path::getModelsPath() . 'user.php';
+//initialisation de la variable $success avec la valeur FALSE
 $success = false;
 //déclaration de la variable $errorMessage a false 
 $errorMessage = false;
@@ -21,9 +23,11 @@ if (!empty($_POST['passwordConnexion'])) {
 }
 
 if ($errorMessage == false) {
+        //instanciation de l'objet user
     $user = new users();
     $user->username = $username;
     if ($user->userConnect()) {
+        //vérification que le mot de passe correspond à celui de l'utilisateur
         if (password_verify($password, $user->password)) {
         //On rempli la session avec les attributs de l'objet issus de l'hydratation
               $_SESSION['username'] = $user->username;
@@ -40,8 +44,10 @@ if ($errorMessage == false) {
             $_SESSION['isConnect'] = true;
             $success = true;
         } else {
+            //si le mot de passe ne correspond pas, affichage du message d'erreur
             $errorMessage = true;
         }
     }
 }
+//lien vers l'ajax
 echo json_encode(array('errorMessage' => $errorMessage, 'success' => $success));

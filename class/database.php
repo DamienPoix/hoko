@@ -7,6 +7,7 @@ include_once path::getRootPath().'configuration.php';
 class database {
 
     // Liste des attributs
+    //Attribut $db en protected pour que toutes les classes enfants y aient accès
     protected $db;
     public $id;
     public $type;
@@ -20,6 +21,7 @@ class database {
         // Si tout est bon, on est connecté à la base de donnée
         try {
             $this->db = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';charset=UTF8;', $this->login, $this->password);
+            //affichage des erreurs SQL
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         //Autrement, un message d'erreur est affiché

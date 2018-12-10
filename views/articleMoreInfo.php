@@ -20,7 +20,13 @@ include_once path::getViewsPath() . 'header.php';
             <p class="left-align acme boldText dateArt">date d'ajout : <?= $articleInfo->postDate ?></p>
         </div>
         <div class="col s6 m6 mbot">
-            <p class="right-align  acme boldText dateArt">disponible jusqu'au : <?= $articleInfo->endDate ?></p>
+            <?php
+            if ($articleInfo->endDate != null) {
+                ?>
+                <p class=" acme boldText right-align">disponible jusqu'au : <?= $articleInfo->endDate ?></p>
+            <?php } else { ?>
+                <p class=" acme boldText right-align">disponible jusqu'a la suppresion</p>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -28,10 +34,10 @@ include_once path::getViewsPath() . 'header.php';
     <div class="row">
         <div class="col s12">
             <h3 class="purple-text centerText acme  ">description de l'article</h3>
-            <p class="descInfo"><?= $articleInfo->description?></p>
+            <p class="descInfo"><?= $articleInfo->description ?></p>
         </div>
     </div>
 </div>
-<?php 
+<?php
 include_once path::getViewsPath() . 'footer.php';
 ?>

@@ -74,6 +74,7 @@ if (isset($_POST['submitArticle'])) {
         $articleError['articleCategory'] = 'Veuillez sélectionner une catégorie pour votre article';
     }
     //========- temps de parution de  l'article -========
+    //strtotime transforme une chaine de caractere en date
     if (!empty($_POST['endDate']) && $_POST['endDate'] != 0) {
         $endDate = $_POST['endDate'];
         if (preg_match($regexNumber, $endDate)) {

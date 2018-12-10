@@ -8,26 +8,30 @@ if (isset($_SESSION['isConnect']) && $_SESSION['isConnect'] == true) {
     $identityName = $_SESSION['lastname'] . ' ' . $_SESSION['firstname'];
     ?>
     <div class="row">
-        <div class="profilImg white">
-            <form name="uploadImage" id="uploadImage" method="POST" enctype="multipart/form-data">
-                <div class="errorProfil hidden"></div>
-                <div class="relative">
-                    <input id="userImage" class="hidden" type="file" name="userImage" accept="image/png" />
-                    <label for="userImage">
-                        <img id="userImageDisplayed" class="userImg"  src="../assets/IMG/userImage/<?= $_SESSION['id'] ?>" title="user image" alt="user image" onerror="this.src='../assets/IMG/userImage/profil.png'" onabort="this.src='../assets/IMG/userImage/profil.png'" /> 
-                    </label>
-                </div>
-                <input name="id" type="hidden" value="<?= $_SESSION['id'] ?>"/>
-            </form>
-            <p class="usernameStyle"><?= $_SESSION['username'] ?></p>
+        <div class="col s12 m2">
+            <div class="profilImg white">
+                <form name="uploadImage" id="uploadImage" method="POST" enctype="multipart/form-data">
+                    <div class="errorProfil hidden"></div>
+                    <div class="relative">
+                        <input id="userImage" class="hidden" type="file" name="userImage" accept="image/png" />
+                        <label for="userImage">
+                            <img id="userImageDisplayed" class="userImg"  src="../assets/IMG/userImage/<?= $_SESSION['id'] ?>" title="user image" alt="user image" onerror="this.src='../assets/IMG/userImage/profil.png'" onabort="this.src='../assets/IMG/userImage/profil.png'" /> 
+                        </label>
+                    </div>
+                    <input name="id" type="hidden" value="<?= $_SESSION['id'] ?>"/>
+                </form>
+                <p class="usernameStyle"><?= $_SESSION['username'] ?></p>
+            </div>
         </div>
-        <div class="profilInfo white">
+        <div class="col s12 m9 offset-m1 profilInfo white">
             <p class="identityName"><?= $identityName ?></p>
             <p class="phoneStyle">téléphone : <?= $_SESSION['phone'] ?></p>
             <p class="mailStyle">mail : <?= $_SESSION['mail'] ?></p>
         </div>
-        <div class="profilInfo white">
-            <p class="memberDate">Membre depuis le : <?= $_SESSION['createDate'] ?></p> 
+        <div class="row">
+            <div class=" col s12 m12 profilInfo white">
+                <p class="memberDate">Membre depuis le : <?= $_SESSION['createDate'] ?></p> 
+            </div>
         </div>
     </div>
     <?php
@@ -65,7 +69,7 @@ if (isset($_SESSION['isConnect']) && $_SESSION['isConnect'] == true) {
                     <h4 class="centerText titleMod">Suppresion</h4>
                     <p  class="centerText boldText">Voulez-vous vraiment supprimer cette Article</p>
                     <p class="centerText"><a href="Profil?ArticleIdDelete=<?= $a->id ?>" class="modal-close waves-effect waves-light btn-flat red white-text boldText ">Supprimer</a></p>
-                    <a href="Parameter" class="modal-close waves-effect waves-light btn-flat green white-text boldText floatR">Annuler</a> 
+                    <a href="Profil" class="modal-close waves-effect waves-light btn-flat green white-text boldText floatR">Annuler</a> 
                 </div>
             </div>
         </div>

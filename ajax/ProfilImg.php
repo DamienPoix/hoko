@@ -8,12 +8,12 @@ $result = array();
 $result['success'] = false;
 $result['errors'] = array();
 
-    $id = isset($_POST['id']) ? htmlspecialchars($_POST['id']) : 0;
-    $extension = array('png');
+    $id = isset($_POST['id']) ? htmlspecialchars($_POST['id']) : 0; //on récupére l'id de l'utilisateur si il exist ou sinon on l'actualise a 0
+    $extension = array('png');//on stock les extension de fichier qu'on veut 
     $temp = explode('.', $_FILES['userImage']['name']);
-    $file_extension = end($temp);
-    $filename = $id;
-    $targetPath = path::getUserImage() . $filename;
+    $file_extension = end($temp);//permet de récuperer la derniere valeur d'un tableau dans notre cas ça sera le png
+    $filename = $id; //pour que le nom de l'image soit l'id de l'utilisateur exemple (15)
+    $targetPath = path::getUserImage() . $filename; //pour target l'image qui nous interesse 
     $sourcePath = $_FILES['userImage']['tmp_name'];
     //
     if ($_FILES['userImage']['type'] == 'image/png') {//vérification si c'est bien une image png

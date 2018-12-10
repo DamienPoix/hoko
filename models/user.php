@@ -2,7 +2,9 @@
 
 include_once path::getClassesPath() . 'database.php';
 
-//
+/**
+ * Création de la class users héritière de database
+ */
 class users extends database {
 
     //déclaration des attributs
@@ -41,6 +43,10 @@ class users extends database {
         return $insertUser->execute();
     }
 
+    /**
+     * Méthode permettant de vérifier la disponibilité d'un nom utilisateur
+     * @return type
+     */
     public function checkIfUserExist() {
         //initialisation de la variable $exist avec FALSE
         $exist = FALSE;
@@ -61,15 +67,21 @@ class users extends database {
         return $exist;
     }
 
-   public function userConnect() {
+    // Méthode permettant d'afficher les informations d'un utilisateur après sa connexion
+    public function userConnect() {
+        //initialisation de la variable $exist avec la valeur false
         $exist = false;
+        //déclaration de la requête sql
         $request = 'SELECT `id`, `lastname`, `username`, `firstname`,`password`, '
                 . 'DATE_FORMAT(`birthdate`, \'%d/%m/%Y\') AS `birthdate`,'
                 . 'DATE_FORMAT(`createDate`, \'%d/%m/%Y\') AS `createDate`, `phone`, `mail`,`idCivility`, `idUserType` '
                 . 'FROM `p24oi86_users` '
                 . 'WHERE `username` = :username';
+        //appel de la requête avec un prepare (car il y a un marqueur nominatif) que l'on stocke dans l'objet $result
         $result = $this->db->prepare($request);
+        //attribution de la valeur au marqueur nominatif avec bindValue (protection contre les injections de sql)
         $result->bindValue(':username', $this->username, PDO::PARAM_STR);
+        //vérification que la requête s'est bien exécutée
         if ($result->execute()) {
             $selectResult = $result->fetch(PDO::FETCH_OBJ);
             if (is_object($selectResult)) { //On vérifie que l'on a bien trouvé un utilisateur
@@ -100,10 +112,12 @@ class users extends database {
         $request = 'SELECT `id`, `lastname`, `username`, `firstname`, DATE_FORMAT(`birthdate`, \'%d/%m/%Y\') AS `birthdate`,DATE_FORMAT(`createDate`, \'%d/%m/%Y\') AS `createDate`, `phone`, `mail`,`idCivility`, `idUserType` '
                 . 'FROM `p24oi86_users` '
                 . 'WHERE `id` = :id';
+        //appel de la requête avec un prepare (car il y a un marqueur nominatif) que l'on stocke dans l'objet $profilresult
         $profilUser = $this->db->prepare($request);
-        //attribution des valeurs des id avec bindValue
+        //attribution de la valeur au marqueur nominatif avec bindValue (protection contre les injections de sql)
         $profilUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         $profilUser->execute();
+        //vérification qu'il s'agit bien d'un objet
         if (is_object($profilUser)) {
             //récupération des infos de l'utilisateur!! :)
             $result = $profilUser->fetch(PDO::FETCH_OBJ);
@@ -111,7 +125,8 @@ class users extends database {
         return $result;
     }
 
-      public function updateUserContent() {
+    //Méthode permettant de modifier les informations de l'utilisateur
+    public function updateUserContent() {
         //déclaration de la requête sql
         $request = 'UPDATE `p24oi86_users` '
                 . 'SET `lastname` = :lastname,'
@@ -143,11 +158,16 @@ class users extends database {
             }
         }
     }
-    public function deleteUser(){
+
+    //Méthode permettant la suppression d'un utilisateur
+    public function deleteUser() {
+        //déclaration de la requête sql
         $request = 'DELETE FROM `p24oi86_users`'
                 . 'WHERE `id` = :id';
+        //appel de la requête avec un prepare (car il y a un marqueur nominatif) que l'on stocke dans l'objet $delete
         $delete = $this->db->prepare($request);
-        $delete->bindValue(':id', $this->id,PDO::PARAM_INT);
+        //attribution de la valeur au marqueur nominatif avec bindValue (protection contre les injections de sql)
+        $delete->bindValue(':id', $this->id, PDO::PARAM_INT);
         //vérification que la requête s'est bien exécutée
         if ($delete->execute()) {
             //vérification qu'il s'agit bien d'un objet
@@ -156,4 +176,5 @@ class users extends database {
             }
         }
     }
+
 }

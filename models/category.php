@@ -7,7 +7,7 @@ class category extends database {
     public $id;
     public $name;
     /*
-     * Méthode pour récuperer les catégories
+     * Méthode pour récuperer les catégories.
      */
     public function showCategory(){
         $request = 'SELECT `id`,`name` '
